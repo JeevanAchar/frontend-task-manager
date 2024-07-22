@@ -22,7 +22,7 @@ function Login() {
     });
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center mt-10">
             <div className="w-full max-w-md">
                 <h2 className="text-blue-600 text-2xl font-bold mb-4">Login</h2>
                 <div className="border-2 border-blue-600 p-4 rounded-lg">
