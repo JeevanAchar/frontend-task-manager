@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axiosInstance from "../utils/axiosInstance";
 
 const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email").required("Required"),
@@ -13,11 +14,23 @@ function Login() {
         password: "",
     }
 
+    const handleSubmit = async (values) => {
+        try {
+            const { data } = await axiosInstance.post("/api/user/login", values);
+            if (data) {
+                window.localStorage.setItem("token", data.data.token);
+                window.localStorage.setItem("email", data.data.email);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            console.log(values);
+            handleSubmit(values);
         }
     });
 
