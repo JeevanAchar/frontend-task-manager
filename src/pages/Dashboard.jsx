@@ -1,9 +1,10 @@
 import React from "react";
+import TaskContainer from "../components/TaskContainer";
 
 function Dashboard() {
     return (
         <div>
-            hi
+            <TaskContainer />
         </div>
     );
 }

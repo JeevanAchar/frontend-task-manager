@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 function Navbar() {
     return (
         <nav className="w-full bg-blue-600 min-h-[60px] flex items-center justify-between px-6 sticky top-0">
-            <div className="text-white text-2xl">
-                <MdEventNote />
+            <div className="text-white flex items-center gap-2">
+                <MdEventNote className="text-2xl" />
+                <Link to="/" className="hover:underline">Home</Link>
             </div>
             <div className="flex gap-5 items-center">
                 <Link to="/login" className="bg-white px-5 py-1 rounded-md text-center text-blue-600 font-semibold hover:underline">Login</Link>
