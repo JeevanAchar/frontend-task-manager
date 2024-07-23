@@ -17,7 +17,7 @@ function TaskColumn({ title, tasks }) {
     }), [title, handleDropTask]);
 
     return (
-        <div className={`lg:w-1/3 w-full mb-4 md:mb-0 p-4 border border-gray-400 mx-2 shadow-lg rounded-md ${isOver ? "bg-gray-200" : ""}`} ref={drop}>
+        <div className={`lg:w-1/3 w-full mb-4 lg:mb-0 p-4 border border-gray-400 mx-2 shadow-lg rounded-md ${isOver ? "bg-gray-200" : ""}`} ref={drop}>
             <h2 className="text-center text-xl font-medium bg-blue-600 p-2 rounded uppercase text-white mb-4">{title}</h2>
             <div>
                 {

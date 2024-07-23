@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axiosInstance from "../utils/axiosInstance";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const validationSchema = Yup.object({
     firstName: Yup.string().required("Required"),
@@ -29,12 +30,16 @@ function Signup() {
                 window.localStorage.setItem("userId", id);
                 window.localStorage.setItem("email", email);
                 window.localStorage.setItem("token", token);
+                toast.success("Registered Successfully")
                 navigate("/");
             } else {
                 window.localStorage.clear();
             }
             resetForm();
         } catch (err) {
+            toast.error("Failed to register");
+            window.localStorage.clear();
+            resetForm();
             console.error(err.message);
         }
     }

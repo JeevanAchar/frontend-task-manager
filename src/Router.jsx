@@ -4,11 +4,12 @@ import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import AuthGuard from "./guard/AuthGuard";
+import { ToastContainer } from "react-toastify";
 
 function Router() {
     return (
         <>
+            <ToastContainer />
             <BrowserRouter>
                 <Navbar />
                 <Routes>
