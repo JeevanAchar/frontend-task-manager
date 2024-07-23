@@ -30,5 +30,6 @@ axiosInstance.interceptors.response.use((response) => {
 
     return response;
 })
+});
 
 export default axiosInstance;
