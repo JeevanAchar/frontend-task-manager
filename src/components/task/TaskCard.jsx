@@ -2,10 +2,10 @@ import React from 'react';
 import ViewTask from './ViewTask';
 import EditTask from './EditTask';
 import { useDrag } from 'react-dnd';
-import { useTask } from '../context/TaskContext';
+import { useTask } from '../../context/TaskContext';
 
 function TaskCard({ task }) {
-    const { handleDeleteTask, handleEditTask, handleViewTask } = useTask();
+    const { handleDeleteTask } = useTask();
     const [viewTask, setViewTask] = React.useState(false);
     const [editTask, setEditTask] = React.useState(false);
 

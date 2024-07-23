@@ -1,7 +1,7 @@
 import React from 'react';
 import TaskColumn from './TaskColumn';
 import TaskForm from './TaskForm';
-import { useTask } from '../context/TaskContext';
+import { useTask } from '../../context/TaskContext';
 
 function TaskContainer() {
     const { tasks, selectedTask, setSelectedTask, isFormOpened, setIsFormOpened, handleAddTask, handleEditTask } = useTask();

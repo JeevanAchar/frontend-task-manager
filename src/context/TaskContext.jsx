@@ -10,7 +10,8 @@ export const TaskProvider = ({ children }) => {
 
     const fetchTasks = async () => {
         try {
-            const { data } = await axiosInstance.get("/api/tasks");
+            const id = window.localStorage.getItem("userId");
+            const { data } = await axiosInstance.get(`/api/tasks/${id}`);
             setTasks(data.data.task);
         } catch (err) {
             console.error(err);
@@ -23,7 +24,8 @@ export const TaskProvider = ({ children }) => {
 
     const handleAddTask = async (task) => {
         try {
-            const { data } = await axiosInstance.post("/api/task", task);
+            const id = window.localStorage.getItem("userId");
+            const { data } = await axiosInstance.post(`/api/task/${id}`, task);
             if (data.message === "Success") {
                 fetchTasks(); // Refetch tasks after adding
             }

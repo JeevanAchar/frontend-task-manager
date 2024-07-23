@@ -1,7 +1,7 @@
 import React from 'react';
 import TaskCard from './TaskCard';
 import { useDrop } from 'react-dnd';
-import { useTask } from '../context/TaskContext';
+import { useTask } from '../../context/TaskContext';
 
 function TaskColumn({ title }) {
     const { tasks, handleDropTask } = useTask();
