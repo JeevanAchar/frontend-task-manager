@@ -38,7 +38,7 @@ function TaskContainer() {
 
     return (
         <div className="p-4">
-            <button onClick={() => setIsFormOpened(true)} className="text-white bg-blue-500 px-8 py-1 rounded mb-4">Add task</button>
+            <button onClick={() => setIsFormOpened(true)} className="text-white bg-blue-600 hover:bg-blue-700 px-8 py-1 rounded mb-4">Add task</button>
             <div className="bg-white shadow-md md:p-4 p-2 rounded flex justify-between items-center mb-6">
                 <div className="flex items-center gap-2">
                     <label htmlFor="search" className='text-sm md:text-base'>Search:</label>
@@ -66,7 +66,7 @@ function TaskContainer() {
                     </select>
                 </div>
             </div>
-            <div className="md:flex w-full">
+            <div className="lg:flex w-full">
                 <TaskColumn title="todo" tasks={filteredTasks.filter(task => task.status === "todo")} />
                 <TaskColumn title="In progress" tasks={filteredTasks.filter(task => task.status === "in-progress")} />
                 <TaskColumn title="done" tasks={filteredTasks.filter(task => task.status === "done")} />
