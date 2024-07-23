@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import AuthGuard from "./guard/AuthGuard";
 
 function Router() {
     return (
@@ -11,9 +12,9 @@ function Router() {
             <BrowserRouter>
                 <Navbar />
                 <Routes>
-                    <Route path="/" element={<Dashboard />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
+                    <Route path="/" element={<Dashboard />} />
                 </Routes>
             </BrowserRouter>
         </>

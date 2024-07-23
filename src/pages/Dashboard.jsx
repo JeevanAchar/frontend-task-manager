@@ -1,10 +1,13 @@
 import React from "react";
 import TaskContainer from "../components/TaskContainer";
+import AuthGuard from "../guard/AuthGuard";
 
 function Dashboard() {
     return (
         <div>
-            <TaskContainer />
+            <AuthGuard>
+                <TaskContainer />
+            </AuthGuard>
         </div>
     );
 }
