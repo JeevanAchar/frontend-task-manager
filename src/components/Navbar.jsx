@@ -1,6 +1,7 @@
 import React from "react";
 import { MdEventNote } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Navbar() {
     const user = window.localStorage.getItem("userId");
@@ -10,7 +11,9 @@ function Navbar() {
         try {
             window.localStorage.clear();
             navigate("/login");
+            toast.success("Successfully LoggedOut");
         } catch (err) {
+            toast.error("Failed to logout")
             console.log(err);
         }
     }
