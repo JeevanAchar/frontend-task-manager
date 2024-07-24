@@ -1,11 +1,11 @@
-import React, { createContext, useContext, useState } from 'react';
+import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-const DnDContext = createContext();
+const DnDContext = React.createContext();
 
 export const DnDProvider = ({ children }) => {
-    const [draggingItem, setDraggingItem] = useState(null);
+    const [draggingItem, setDraggingItem] = React.useState(null);
 
     return (
         <DndProvider backend={HTML5Backend}>
@@ -16,7 +16,6 @@ export const DnDProvider = ({ children }) => {
     );
 };
 
-export const useDnD = () => useContext(DnDContext);
+export const useDnD = () => React.useContext(DnDContext);
 
 export default DnDProvider;
-    

@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axiosInstance from "../utils/axiosInstance";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object({
     firstName: Yup.string().required("Required"),
@@ -11,6 +12,7 @@ const validationSchema = Yup.object({
 })
 
 function Signup() {
+    const navigate = useNavigate();
     const initialValues = {
         firstName: "",
         lastName: "",
@@ -19,10 +21,18 @@ function Signup() {
         confirmPassword: ""
     };
 
-    const handleSubmit = async (values) => {
+    const handleSubmit = async (values, { resetForm }) => {
         try {
-            const { data } = await axiosInstance.post("/api/user", values);
-            console.log(data.message);
+            const { data } = await axiosInstance.post("/api/user/register", values);
+            if (data.message === "Success") {
+                const { token, email } = data.data;
+                window.localStorage.setItem("email", email);
+                window.localStorage.setItem("token", token);
+                navigate("/");
+            } else {
+                window.localStorage.clear();
+            }
+            resetForm();
         } catch (err) {
             console.error(err.message);
         }
@@ -31,7 +41,9 @@ function Signup() {
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: validationSchema,
-        onSubmit: (values) => handleSubmit(values)
+        onSubmit: (values, formikHelpers) => {
+            handleSubmit(values, formikHelpers)
+        }
     });
 
     return (
