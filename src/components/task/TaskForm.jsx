@@ -23,11 +23,12 @@ function TaskForm({ onSave, task, onClose }) {
 
     return (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-            <div className="bg-white p-4 rounded shadow-lg w-1/2">
+            <div className="w-full bg-white p-4 rounded shadow-lg md:w-1/2 mx-5 md:mx-0">
+                <h2 className="sm:text-3xl text-xl mb-6 text-center font-medium text-gray-500 underline">Add Task</h2>
                 <form action="" onSubmit={formik.handleSubmit}>
-                    <div className="mb-6">
-                        <label htmlFor="title">title</label>
-                        <input type="text" name="title" id="title" className="p-2 border rounded w-full" onChange={formik.handleChange} value={formik.values.title} onBlur={formik.handleBlur} />
+                    <div className="mb-4">
+                        <label htmlFor="title" className="text-gray-500 sm:text-lg text-base font-medium block mb-1">title</label>
+                        <input type="text" name="title" id="title" className="p-2 border-2 border-gray-300 rounded w-full outline-gray-400" onChange={formik.handleChange} value={formik.values.title} onBlur={formik.handleBlur} />
                         <div>
                             {
                                 formik.errors.title && formik.touched.title ?
@@ -36,9 +37,9 @@ function TaskForm({ onSave, task, onClose }) {
                             }
                         </div>
                     </div>
-                    <div className="mb-6">
-                        <label htmlFor="description">description</label>
-                        <input type="text" name="description" id="description" className="p-2 border rounded w-full" onChange={formik.handleChange} value={formik.values.description} onBlur={formik.handleBlur} />
+                    <div className="mb-4">
+                        <label htmlFor="description" className="text-gray-500 sm:text-lg text-base font-medium block mb-1">description</label>
+                        <input type="text" name="description" id="description" className="p-2 border-2 border-gray-300 rounded w-full outline-gray-400" onChange={formik.handleChange} value={formik.values.description} onBlur={formik.handleBlur} />
                         <div>
                             {
                                 formik.errors.description && formik.touched.description ?
@@ -47,9 +48,9 @@ function TaskForm({ onSave, task, onClose }) {
                             }
                         </div>
                     </div>
-                    <div className="flex justify-end">
-                        <button type="button" onClick={onClose} className="bg-gray-500 text-white px-4 py-2 rounded mr-2" >cancel</button>
-                        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Save</button>
+                    <div className="flex justify-end gap-4">
+                        <button type="button" onClick={onClose} className="bg-gray-500 px-5 py-1 rounded-md text-center text-white font-semibold hover:bg-gray-600" >cancel</button>
+                        <button type="submit" className="bg-blue-600 px-5 py-1 rounded-md text-center text-white font-semibold hover:bg-blue-700">Save</button>
                     </div>
                 </form>
             </div>

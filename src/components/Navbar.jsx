@@ -24,7 +24,7 @@ function Navbar() {
             {
                 !user ?
                     <div className="flex gap-5 items-center">
-                        <Link to="/login" className="bg-white px-5 py-1 rounded-md text-center text-blue-600 font-semibold hover:underline">Login</Link>
+                        <Link to="/login" className="bg-slate-100 px-5 py-1 rounded-md text-center text-blue-600 font-semibold hover:bg-white">Login</Link>
                         <Link to="/signup" className="bg-transparent px-5 py-1 rounded-md text-center text-white font-semibold hover:underline">Signup</Link>
                     </div>
                     :
