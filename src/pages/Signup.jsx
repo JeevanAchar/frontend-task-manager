@@ -25,7 +25,8 @@ function Signup() {
         try {
             const { data } = await axiosInstance.post("/api/user/register", values);
             if (data.message === "Success") {
-                const { token, email } = data.data;
+                const { token, email, id } = data.data;
+                window.localStorage.setItem("userId", id);
                 window.localStorage.setItem("email", email);
                 window.localStorage.setItem("token", token);
                 navigate("/");

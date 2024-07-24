@@ -20,10 +20,12 @@ function Login() {
         try {
             const { data } = await axiosInstance.post("/api/user/login", values);
             if (data) {
-                window.localStorage.setItem("token", data.data.token);
-                window.localStorage.setItem("email", data.data.email);
+                const { token, email, id } = data.data;
+                window.localStorage.setItem("userId", id);
+                window.localStorage.setItem("email", email);
+                window.localStorage.setItem("token", token);
                 navigate("/");
-            }else{
+            } else {
                 window.localStorage.clear();
             }
             resetForm();
@@ -36,7 +38,7 @@ function Login() {
         initialValues: initialValues,
         validationSchema: validationSchema,
         onSubmit: (values, formikHelpers) => {
-            handleSubmit(values,formikHelpers);
+            handleSubmit(values, formikHelpers);
         }
     });
 
